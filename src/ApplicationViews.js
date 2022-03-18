@@ -4,9 +4,13 @@ import { Route } from "react-router-dom";
 
 export const ApplicationViews = () => {
 
-    return <>
-    <><main>
+    return (
+    
+    <>
+
+    <main>
         
-        </main></>
+        </main>
     </>
+    )
 }
