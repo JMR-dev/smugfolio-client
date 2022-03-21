@@ -5,15 +5,19 @@ import { Link, useHistory } from "react-router-dom"
 export const NavBar = () => {
     const history = useHistory()
     return (
+        
         <ul className="navbar">
             <li className="navbar__item">
-                My Images
+                <Link to={ "/Home"} >Upload Images</Link>
             </li>
             <li className="navbar__item">
-                Explore Images by Tag
+                <Link to={"/MyImages"}>My Images</Link>
             </li>
             <li className="navbar__item">
-                My Profile
+              <Link to={"/PhotosByTag"}>  Explore Images by Tag</Link>
+            </li>
+            <li className="navbar__item">
+               <Link to={"/Profile"}>My Profile</Link>
             </li>
             {
                 (localStorage.getItem("sf_token") !== null) ?

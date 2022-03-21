@@ -1,4 +1,4 @@
-export const getImages = () => {
+export const getTags = () => {
     return fetch("http://localhost:8000/tags", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sf_token")}`
@@ -6,6 +6,7 @@ export const getImages = () => {
     })
         .then(response => response.json())
 }
+
 
 
 export const createTags = (tag) => {

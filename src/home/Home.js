@@ -4,7 +4,7 @@ import { postImages, getImages } from "./HomeManager";
 
 export const Home = () => {
     const homeImages = useState([])
-    const history = useHistory
+    const history = useHistory()
     const[ businessImages, setbusinessImages] = useState([])
     const [image, setImage] = useState({
         album_id: 0,
@@ -67,7 +67,12 @@ const defaultImageState =
         <h1>SmugFolio</h1>
         <input label="Browse for image file to upload" type="file" id="image_upload" onChange={createImageString} />
  <input type="hidden" name="image_id" value={image.id} />
- <button onClick={(e) => { postImages(image, file_name).then(setImage(defaultImageState).then(setfile_Name("").then(resetFileNameOnUpload("No file chosen"))))
+ <button onClick={
+     () => 
+ { postImages(image, file_name)
+ .then(setImage(defaultImageState))
+ .then(history.push("/SelectTags"))
+ // code to rename the browse label. This is not working but should be done after other views are complete .then(setfile_Name("").then(resetFileNameOnUpload("No file chosen"))
      // Upload the stringified image that is stored in state
  }}>Upload</button>
  <div>
