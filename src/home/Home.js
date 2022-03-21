@@ -4,6 +4,7 @@ import { postImages, getImages } from "./HomeManager";
 
 export const Home = () => {
     const homeImages = useState([])
+    const { id } = useParams()
     const history = useHistory()
     const[ businessImages, setbusinessImages] = useState([])
     const [image, setImage] = useState({
@@ -71,7 +72,7 @@ const defaultImageState =
      () => 
  { postImages(image, file_name)
  .then(setImage(defaultImageState))
- .then(history.push("/SelectTags"))
+ .then(history.push(`/SelectTags/${image.id}`))
  // code to rename the browse label. This is not working but should be done after other views are complete .then(setfile_Name("").then(resetFileNameOnUpload("No file chosen"))
      // Upload the stringified image that is stored in state
  }}>Upload</button>

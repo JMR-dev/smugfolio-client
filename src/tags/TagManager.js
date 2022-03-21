@@ -1,5 +1,5 @@
 export const getTags = () => {
-    return fetch("http://localhost:8000/tags", {
+    return fetch("http://localhost:8000/image_tags", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sf_token")}`
         }
@@ -10,7 +10,7 @@ export const getTags = () => {
 
 
 export const createTags = (tag) => {
-    return fetch(`http://localhost:8000/events`, {
+    return fetch(`http://localhost:8000/image_tags`, {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sf_token")}`,
