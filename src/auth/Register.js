@@ -36,6 +36,7 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("sf_token", res.token)
+                        localStorage.setItem("smug_user_id",res.smug_user)
                         history.push("/")
                     }
                 })

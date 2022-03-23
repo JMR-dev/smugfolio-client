@@ -26,6 +26,7 @@ export const Login = () => {
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem("sf_token", res.token)
+                    localStorage.setItem("smug_user_id",res.smug_user_id)
                     history.push("/")
                 }
                 else {

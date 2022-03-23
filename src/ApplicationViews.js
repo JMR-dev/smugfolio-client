@@ -17,8 +17,9 @@ export const ApplicationViews = () => {
         <Route exact path="/">
             <Home />
             </Route >
-        <Route exact path = "/SelectTags">
+        <Route path = "/SelectTags/:id">
             <SelectTags />
+                
         </Route>
         <Route exact path = "/PhotosByTag">
             <PhotosByTag />
