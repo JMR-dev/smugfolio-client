@@ -14,6 +14,17 @@ export const SelectTags = () => {
      },[]
      )
 
+     const changefunction = (e) => {
+         const checkboxID = e.target.value
+         let tagselectioncopy = [...tag_selections]
+         if (tagselectioncopy.find((id) => id === checkboxID)) {
+             tagselectioncopy = tagselectioncopy.filter((id) => id !== checkboxID)
+             setTagSelections(tagselectioncopy)
+         } else {tagselectioncopy.push(checkboxID)
+            setTagSelections(tagselectioncopy)
+        }
+     }
+
      return(
          <>
             <h2>Select Tags for Images</h2>
@@ -24,7 +35,7 @@ export const SelectTags = () => {
                     return(
                         <>
                         <input type="checkbox" name="imagetags" value={tagname.id} id= "imagetags" onChange={
-                            (e) => {tagname.forEach(setTagSelections(e.target.value)) }
+                            (e) => {changefunction(e) }
                         } />
                         <label for="imagetags">{tagname.image_tag_name}</label>
                         </>
@@ -35,7 +46,8 @@ export const SelectTags = () => {
             }
             < button onClick = {
                 () => {
-                    addTagsToImages(tag_selections, {id})
+                    const submitOBJ = {image_tags:tag_selections}
+                    addTagsToImages( submitOBJ, id)
                 }
             }
             

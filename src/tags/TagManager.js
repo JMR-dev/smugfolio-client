@@ -23,7 +23,7 @@ export const createTags = (tag) => {
 .then(response => response.json())
  }
 
- export const addTagsToImages = (id, tag_selections) => {
+ export const addTagsToImages = (tag_selections,id) => {
      return fetch(`http://localhost:8000/images/${id}`, {
      method: "PUT",
      headers:{
