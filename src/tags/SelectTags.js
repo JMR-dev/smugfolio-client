@@ -1,10 +1,12 @@
 import react, {useState, useEffect, useRef} from "react"
 import { useHistory, useParams } from "react-router-dom"
-import { getTags } from "./TagManager"
+import { getTags, addTagsToImages } from "./TagManager"
 
 export const SelectTags = () => {
     const [tags, setTags] = useState([])
-    const [tagselections, setTagSelections] = useState([])
+    const [tag_selections, setTagSelections] = useState( new Array(tags.length).fill(0))
+    let { id } = useParams();
+    const tagscopy = [...tags]
     
     useEffect( 
         () => {
@@ -18,11 +20,11 @@ export const SelectTags = () => {
 
             <div>
                 
-            {tags.map((tagname) => {
+            {tagscopy.map((tagname) => {
                     return(
                         <>
-                        <input type="checkbox" name="imagetags" id= "imagetags" onChange={
-                            (e) => { }
+                        <input type="checkbox" name="imagetags" value={tagname.id} id= "imagetags" onChange={
+                            (e) => {tagname.forEach(setTagSelections(e.target.value)) }
                         } />
                         <label for="imagetags">{tagname.image_tag_name}</label>
                         </>
@@ -31,7 +33,14 @@ export const SelectTags = () => {
                 )
                 
             }
-            {/* <button onClick={(e) =}>Submit</button> */}
+            < button onClick = {
+                () => {
+                    addTagsToImages(tag_selections, {id})
+                }
+            }
+            
+            
+            >Submit</button>
          </div>
          
          </>

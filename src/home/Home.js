@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useHistory,useParams } from "react-router-dom";
 import { postImages, getImages } from "./HomeManager";
+ 
 
 export const Home = () => {
     const homeImages = useState([])
@@ -71,8 +72,7 @@ const defaultImageState =
  <button onClick={
      () => 
  { postImages(image, file_name)
- .then(setImage(defaultImageState))
- .then(history.push(`/SelectTags/${image.id}`))
+ .then((image) => history.push(`/SelectTags/${image.id}`))
  // code to rename the browse label. This is not working but should be done after other views are complete .then(setfile_Name("").then(resetFileNameOnUpload("No file chosen"))
      // Upload the stringified image that is stored in state
  }}>Upload</button>

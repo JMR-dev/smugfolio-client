@@ -22,3 +22,15 @@ export const createTags = (tag) => {
         )
 .then(response => response.json())
  }
+
+ export const addTagsToImages = (id, tag_selections) => {
+     return fetch(`http://localhost:8000/images/${id}`, {
+     method: "PUT",
+     headers:{
+        "Authorization": `Token ${localStorage.getItem("sf_token")}`,
+        "Content-Type": "Application/json"
+            },
+    body:JSON.stringify(tag_selections)
+        }
+    )
+ }
