@@ -13,9 +13,9 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <Link to={"/MyImages"}>My Images</Link>
             </li>
-            <li className="navbar__item">
+            {/* <li className="navbar__item">
               <Link to={"/PhotosByTag"}>  Explore Images by Tag</Link>
-            </li>
+            </li> */}
             <li className="navbar__item">
                <Link to={"/Profile"}>My Profile</Link>
             </li>
