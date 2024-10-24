@@ -6,31 +6,26 @@ import { PhotosByTag } from "./tags/PhotosByTag";
 import { MyImages } from "./images/MyImages";
 import { Profile } from "./profile/Profile";
 
-
 export const ApplicationViews = () => {
-
-    return (
-    
+  return (
     <>
-
-    <main>
+      <main>
         <Route exact path="/">
-            <Home />
-            </Route >
-        <Route path = "/SelectTags/:id">
-            <SelectTags />
-                
+          <Home />
         </Route>
-        <Route exact path = "/PhotosByTag">
-            <PhotosByTag />
+        <Route path="/SelectTags/:id">
+          <SelectTags />
+        </Route>
+        <Route exact path="/PhotosByTag">
+          <PhotosByTag />
         </Route>
         <Route exact path="/Profile">
-            <Profile />
+          <Profile />
         </Route>
-        <Route exact path ="/MyImages" >
-            <MyImages />
+        <Route exact path="/MyImages">
+          <MyImages />
         </Route>
-        </main>
+      </main>
     </>
-    )
-}
+  );
+};
